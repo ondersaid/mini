@@ -1,0 +1,14 @@
+name: Research runner smoke test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Smoke test
+        run: |
+          python --version
+          curl -I --max-time 20 https://api.marketfiyati.org.tr/ || true
